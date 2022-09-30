@@ -1,0 +1,6 @@
+.header {
+  @apply flex flex-row justify-between;
+  @apply py-6 px-5;
+
+  @apply font-sans;
+}

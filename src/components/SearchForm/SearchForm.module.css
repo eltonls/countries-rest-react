@@ -1,0 +1,18 @@
+.form {
+  @apply p-5;
+}
+
+.form__input {
+  @apply bg-transparent;
+
+  @apply w-full h-full;
+}
+
+.form__icon {
+  @apply mr-1;
+}
+
+.form__input:focus {
+  @apply outline-none;
+}
+

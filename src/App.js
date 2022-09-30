@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React from "react";
+import { useState } from "react";
+import Header from "./components/Header/Header";
 import './App.css';
+import SearchForm from "./components/SearchForm/SearchForm";
 
 function App() {
+  const [isDarkTheme, setIsDarkTheme] = useState(false); 
+
+  /* useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all") 
+      .then((res) => {
+        console.log(res.json());
+      })
+      .catch((err) => console.log(err));
+  }, []) */
+
+
+  const changeThemeHandler = () => {
+    setIsDarkTheme((previous) => {
+      return !previous;
+    }); 
+  } 
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${isDarkTheme ? "dark" : "light"}`}> 
+        <Header isDarktheme={isDarkTheme} themeHandler={changeThemeHandler} />  
+        <SearchForm />
     </div>
   );
 }
